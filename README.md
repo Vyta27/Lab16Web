@@ -8,7 +8,6 @@ Kelas : TI.24.A2
 
 # Aplikasi Sederhana - SISTEM INFORMASI PERPUSTAKAAN DIGITAL
 
-```
 ## Struktur Database
 
 *Tabel : `Users`*
