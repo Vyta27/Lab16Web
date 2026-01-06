@@ -10,7 +10,7 @@ Kelas : TI.24.A2
 
 ## Struktur Database
 
-*Tabel : `Users`*
+### Tabel : `Users`
 
 ```
 CREATE TABLE users (
