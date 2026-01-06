@@ -8,6 +8,12 @@ Kelas : TI.24.A2
 
 # Aplikasi Sederhana - SISTEM INFORMASI PERPUSTAKAAN DIGITAL
 
+```
+## Struktur Database
+
+*Tabel : `Users`*
+
+```
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -16,3 +22,4 @@ CREATE TABLE users (
     role ENUM('admin', 'user') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
