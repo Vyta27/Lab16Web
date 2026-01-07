@@ -157,11 +157,13 @@ private $port = 3307;
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/23f41f29-801f-44a8-8aa4-06fe947d3988" />
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/ecebdd55-a967-4bb3-b92e-198372084082" />
+
 ### 1. Tambah Buku
-- klik tombol "➕ Tambah Buku"
+- klik tombol "Tambah Buku"
 - Isi form (judul, penulis, penerbit, tahun, kategori, stok)
 - Upload gambar cover (opsional)
-- Klik "💾 Simpan Buku"
+- Klik "Simpan Buku"
 
 ### 2. Edit Buku
 - Klik tombol "✏️ Edit" pada buku yang ingin diubah
