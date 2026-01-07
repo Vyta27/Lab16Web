@@ -150,6 +150,8 @@ private $port = 3307;
 - Masukkan username dan password
 - Klik "Login"
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/c60a0ab5-991a-40b3-afe8-21a0874c9ba6" />
+
 ## SebagaI Admin
 
 
