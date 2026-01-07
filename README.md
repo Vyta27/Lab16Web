@@ -204,6 +204,10 @@ private $port = 3307;
 
 ## Sebagai User
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/79661ec8-bce7-4bf4-bf8c-b8cde08e5123" />
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/9db02cba-698b-41e7-b277-4f68e27b79bd" />
+
 ### 1. Meminjam Buku
 - Browse daftar buku di halaman utama
 - Cari buku yang diinginkan (opsional)
