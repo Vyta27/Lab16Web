@@ -156,10 +156,17 @@ private $port = 3307;
 ### Mengelola Buku
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/23f41f29-801f-44a8-8aa4-06fe947d3988" />
+### 1. Dashboard Buku 
+- Tombol "Tambah Buku" (Admin)
+- Form pencarian
+- Grid layout buku dengan gambar cover
+- Tombol Edit & Hapus untuk setiap buku
+- Pagination
+- Info stok buku
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/ecebdd55-a967-4bb3-b92e-198372084082" />
 
-### 1. Tambah Buku
+### 2. Tambah Buku
 - klik tombol "Tambah Buku"
 - Isi form (judul, penulis, penerbit, tahun, kategori, stok)
 - Upload gambar cover (opsional)
@@ -167,7 +174,7 @@ private $port = 3307;
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/999a01b1-927b-4854-adb0-6340a4765d24" />
 
-### 2. Edit Buku
+### 3. Edit Buku
 - Klik tombol " Edit" pada buku yang ingin diubah
 - Ubah data yang diperlukan
 - Upload gambar baru (opsional)
@@ -175,23 +182,44 @@ private $port = 3307;
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/b30d7df3-2817-45db-baa4-ac5527e66eda" />
 
-### 3. Hapus Buku
+### 4. Hapus Buku
 - Klik tombol "Hapus" pada buku
 - Konfirmasi penghapusan
 - Buku dan gambarnya akan terhapus
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/5ab97d63-33a0-4ab5-a06b-66b42424f7c9" />
 
-### 4. Cari Buku
+### 5. Cari Buku
 - Ketik kata kunci di kolom pencarian
 - Klik "Cari"
 - Sistem akan filter berdasarkan judul, penulis, atau kategori
 
-### 5. Kelola Peminjaman
-- Klik menu "🔧 Kelola Peminjaman"
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/cd33627e-3bf7-4e38-9b73-7d08d824e5e8" />
+
+### 6. Kelola Peminjaman
+- Klik menu "Kelola Peminjaman"
 - Lihat statistik peminjaman
 - Lihat semua peminjaman dari semua user
 - Tandai buku sudah dikembalikan jika perlu 
 
+## Sebagai User
 
+### 1. Meminjam Buku
+- Browse daftar buku di halaman utama
+- Cari buku yang diinginkan (opsional)
+- Klik "Pinjam Buku" pada buku yang tersedia
+- Konfirmasi peminjaman
+- Stok akan berkurang otomatis
 
+### Mengembalikan Buku
+- Klik menu "Peminjaman Saya"
+- Lihat daftar buku yang dipinjam
+- Klik "Kembalikan" pada buku yang ingin dikembalikan
+- Konfirmasi pengembalian
+- Stok akan bertambah otomatis
+
+### Melihat Riwayat
+- Klik menu "Peminjaman Saya"
+- Lihat semua riwayat peminjaman
+- Status akan menunjukkan "Dipinjam" atau "Dikembalikan" 
+  
