@@ -165,6 +165,8 @@ private $port = 3307;
 - Upload gambar cover (opsional)
 - Klik "Simpan Buku"
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/999a01b1-927b-4854-adb0-6340a4765d24" />
+
 ### 2. Edit Buku
 - Klik tombol "✏️ Edit" pada buku yang ingin diubah
 - Ubah data yang diperlukan
