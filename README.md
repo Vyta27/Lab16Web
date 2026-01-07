@@ -144,4 +144,14 @@ private $db   = 'perpustakaan';
 private $port = 3307; 
 ```
 
+## Panduan Penggunaan
+### Login
+- Akses http://localhost/perpustakaan/
+- Masukkan username dan password
+- Klik "Login"
+
+## SebagaI Admin
+
+
+
 
