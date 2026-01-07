@@ -222,7 +222,6 @@ private $port = 3307;
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/c26a8006-153a-46eb-a02f-8a961073fa34" />
 
-<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/e4a4d370-01b9-4650-a1e7-5075be48c765" />
 
 ### Mengembalikan Buku
 - Klik menu "Peminjaman Saya"
@@ -230,6 +229,8 @@ private $port = 3307;
 - Klik "Kembalikan" pada buku yang ingin dikembalikan
 - Konfirmasi pengembalian
 - Stok akan bertambah otomatis
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/e4a4d370-01b9-4650-a1e7-5075be48c765" />
 
 ### Melihat Riwayat
 - Klik menu "Peminjaman Saya"
