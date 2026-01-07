@@ -168,19 +168,21 @@ private $port = 3307;
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/999a01b1-927b-4854-adb0-6340a4765d24" />
 
 ### 2. Edit Buku
-- Klik tombol "✏️ Edit" pada buku yang ingin diubah
+- Klik tombol " Edit" pada buku yang ingin diubah
 - Ubah data yang diperlukan
 - Upload gambar baru (opsional)
-- Klik "💾 Update Buku"
+- Klik "Update Buku"
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/b30d7df3-2817-45db-baa4-ac5527e66eda" />
 
 ### 3. Hapus Buku
-- Klik tombol "🗑️ Hapus" pada buku
+- Klik tombol "Hapus" pada buku
 - Konfirmasi penghapusan
 - Buku dan gambarnya akan terhapus
 
 ### 4. Cari Buku
 - Ketik kata kunci di kolom pencarian
-- Klik "🔍 Cari"
+- Klik "Cari"
 - Sistem akan filter berdasarkan judul, penulis, atau kategori
 
 ### 5. Kelola Peminjaman
