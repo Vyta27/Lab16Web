@@ -204,9 +204,10 @@ private $port = 3307;
 
 ## Sebagai User
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/9db02cba-698b-41e7-b277-4f68e27b79bd" />
+
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/79661ec8-bce7-4bf4-bf8c-b8cde08e5123" />
 
-<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/9db02cba-698b-41e7-b277-4f68e27b79bd" />
 
 ### 1. Meminjam Buku
 - Browse daftar buku di halaman utama
@@ -214,6 +215,14 @@ private $port = 3307;
 - Klik "Pinjam Buku" pada buku yang tersedia
 - Konfirmasi peminjaman
 - Stok akan berkurang otomatis
+
+
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/a8d1e4d3-e22a-4441-8042-a51e0eae5ac9" />
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/c26a8006-153a-46eb-a02f-8a961073fa34" />
+
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/e4a4d370-01b9-4650-a1e7-5075be48c765" />
 
 ### Mengembalikan Buku
 - Klik menu "Peminjaman Saya"
