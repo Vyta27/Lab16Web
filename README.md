@@ -156,7 +156,9 @@ private $port = 3307;
 ### Mengelola Buku
 
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/23f41f29-801f-44a8-8aa4-06fe947d3988" />
+
 ### 1. Dashboard Buku 
+
 - Tombol "Tambah Buku" (Admin)
 - Form pencarian
 - Grid layout buku dengan gambar cover
@@ -236,4 +238,275 @@ private $port = 3307;
 - Klik menu "Peminjaman Saya"
 - Lihat semua riwayat peminjaman
 - Status akan menunjukkan "Dipinjam" atau "Dikembalikan" 
-  
+
+# Prnjelasan Kode
+
+## 1. Routing System (core/Router.php)
+- Konsep: Custom router menggunakan URL rewriting dengan .htaccess
+
+```
+class Router {
+    public static function run() {
+        $url = $_GET['url'] ?? '';
+        $url = trim($url, '/');
+        
+        if ($url === '') {
+            $url = 'login';
+        }
+        
+        switch ($url) {
+            case 'login':
+                (new AuthController())->login();
+                break;
+            // ... routes lainnya
+        }
+    }
+}
+```
+
+### Penjelasan :
+- Mengambil URL dari parameter GET
+- Mencocokkan dengan route yang tersedia
+- Memanggil controller yang sesuai
+- Default route adalah 'login'
+
+## Database Connection (config/database.php)
+- Konsep: Singleton pattern untuk koneksi database
+
+```
+class Database {
+    private static $instance = null;
+    
+    public static function getInstance() {
+        if (self::$instance == null) {
+            self::$instance = new Database();
+        }
+        return self::$instance;
+    }
+}
+```
+
+### Penjelasan :
+- Hanya satu instance koneksi database
+- Menghemat resource
+- Mudah diakses dengan function helper db()
+
+## Authentication (app/controllers/AuthController.php)
+- Konsep: Login dengan password hashing dan session management
+
+```
+public function login() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $user = $userModel->login($username, $password);
+        
+        if ($user) {
+            $_SESSION['user'] = [
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'nama' => $user['nama'],
+                'role' => $user['role']
+            ];
+            header('Location: ' . BASE_URL . 'buku');
+        }
+    }
+}
+```
+
+### Penjelasan :
+- Cek method POST untuk submit form
+- Validasi username dan password
+- Simpan data user di session
+- Redirect ke halaman buku jika berhasil
+
+## 4. Password Verification (app/models/User.php)
+- Konsep: Password hashing menggunakan bcrypt
+
+```
+public function login($username, $password) {
+    $user = // query database
+    
+    if (password_verify($password, $user['password'])) {
+        return $user;
+    }
+    return false;
+}
+```
+
+### Penjelasan :
+- Password di database terenkripsi dengan bcrypt
+- Gunakan password_verify() untuk pencocokan
+- Return user data jika cocok
+
+## 5. CRUD Buku (app/controllers/BukuController.php)
+- Konsep: Controller menangani business logic CRUD
+- Create :
+
+```
+public function create() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Handle upload gambar
+        if (isset($_FILES['gambar'])) {
+            $upload = $this->uploadGambar($_FILES['gambar']);
+            $data['gambar'] = $upload['filename'];
+        }
+        
+        // Insert ke database
+        $bukuModel->insert($data);
+    }
+}
+```
+
+- Read :
+
+```
+public function index() {
+    $dataBuku = $bukuModel->getPaginated($limit, $offset, $search);
+    $totalPage = ceil($totalData / $limit);
+    
+    require __DIR__ . '/../views/buku/index.php';
+}
+```
+
+- Update :
+
+```
+public function edit() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Hapus gambar lama jika ada upload baru
+        if (isset($_FILES['gambar'])) {
+            unlink(UPLOAD_DIR . $buku['gambar']);
+            $upload = $this->uploadGambar($_FILES['gambar']);
+        }
+        
+        $bukuModel->update($id, $data);
+    }
+}
+```
+
+- Delete :
+
+```
+public function delete() {
+    $bukuModel->delete($_GET['id']);
+    header('Location: ' . BASE_URL . 'buku');
+}
+```
+
+## 6. Upload Gambar
+- Konsep: Validasi dan upload file gambar
+
+```
+private function uploadGambar($file) {
+    // Validasi ukuran
+    if ($file['size'] > MAX_FILE_SIZE) {
+        return ['status' => false, 'message' => 'File terlalu besar'];
+    }
+    
+    // Validasi ekstensi
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if (!in_array($ext, ALLOWED_EXT)) {
+        return ['status' => false, 'message' => 'Format tidak diizinkan'];
+    }
+    
+    // Generate nama unik
+    $filename = uniqid() . '_' . time() . '.' . $ext;
+    
+    // Upload file
+    move_uploaded_file($file['tmp_name'], UPLOAD_DIR . $filename);
+}
+```
+
+### Penjelasan :
+- Validasi ukuran file (max 5MB)
+- Validasi ekstensi (JPG, PNG, GIF)
+- Generate nama file unik untuk menghindari konflik
+- Move file ke folder uploads
+
+## 7. Pagination
+- Konsep: Membagi data menjadi beberapa halaman
+
+```
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 5;
+$offset = ($page - 1) * $limit;
+
+$dataBuku = $bukuModel->getPaginated($limit, $offset, $search);
+$totalData = $bukuModel->countAll($search);
+$totalPage = ceil($totalData / $limit);
+```
+### Penjelasan :
+- Ambil parameter page dari URL
+- Hitung offset berdasarkan page
+- Query database dengan LIMIT dan OFFSET
+- Hitung total halaman
+
+## 8. Peminjaman Buku
+- Konsep: Transaksi peminjaman dengan update stok otomatis
+ 
+```
+public function pinjam($user_id, $buku_id) {
+    // Cek stok
+    $buku = // query buku
+    if ($buku['stok'] <= 0) {
+        return ['status' => false, 'message' => 'Stok habis'];
+    }
+    
+    // Cek sudah pinjam atau belum
+    $cek = // query peminjaman
+    if ($cek->num_rows > 0) {
+        return ['status' => false, 'message' => 'Sudah meminjam'];
+    }
+    
+    // Insert peminjaman
+    // UPDATE buku SET stok = stok - 1
+}
+```
+
+### Penjelasan :
+- Validasi stok buku tersedia
+- Cek user sudah pinjam buku yang sama atau belum
+- Insert data peminjaman
+- Kurangi stok buku otomatis
+
+## 9. Pengembalian Buku
+- Konsep: Update status dan tambah stok otomatis
+
+```
+public function kembalikan($peminjaman_id) {
+    // Get data peminjaman
+    $peminjaman = // query
+    
+    // Update status & tanggal kembali
+    // UPDATE peminjaman SET status='dikembalikan', tanggal_kembali=NOW()
+    
+    // Tambah stok buku
+    // UPDATE buku SET stok = stok + 1
+}
+```
+
+### Penjelasan :
+- Ambil data peminjaman
+- Update status menjadi 'dikembalikan'
+- Set tanggal pengembalian
+- Tambah stok buku otomatis
+
+## 10. Search & Filter
+- Konsep: SQL LIKE query dengan multiple column
+
+```
+$sql = "SELECT * FROM buku WHERE 1=1";
+
+if ($search !== '') {
+    $search = $conn->real_escape_string($search);
+    $sql .= " AND (judul LIKE '%$search%' 
+              OR penulis LIKE '%$search%' 
+              OR kategori LIKE '%$search%')";
+}
+```
+
+### Penjelasan :
+- Escape input user untuk prevent SQL injection
+- LIKE query dengan wildcard %
+- Search di multiple kolom (judul, penulis, kategori)
+
+
