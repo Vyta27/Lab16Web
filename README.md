@@ -180,6 +180,8 @@ private $port = 3307;
 - Konfirmasi penghapusan
 - Buku dan gambarnya akan terhapus
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/5ab97d63-33a0-4ab5-a06b-66b42424f7c9" />
+
 ### 4. Cari Buku
 - Ketik kata kunci di kolom pencarian
 - Klik "Cari"
