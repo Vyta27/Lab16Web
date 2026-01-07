@@ -239,7 +239,7 @@ private $port = 3307;
 - Lihat semua riwayat peminjaman
 - Status akan menunjukkan "Dipinjam" atau "Dikembalikan" 
 
-# Prnjelasan Kode
+# Penjelasan Kode
 
 ## 1. Routing System (core/Router.php)
 - Konsep: Custom router menggunakan URL rewriting dengan .htaccess
