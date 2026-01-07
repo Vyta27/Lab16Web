@@ -153,7 +153,37 @@ private $port = 3307;
 <img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/c60a0ab5-991a-40b3-afe8-21a0874c9ba6" />
 
 ## SebagaI Admin
+### Mengelola Buku
 
+<img width="1920" height="1008" alt="Image" src="https://github.com/user-attachments/assets/23f41f29-801f-44a8-8aa4-06fe947d3988" />
+
+### 1. Tambah Buku
+- klik tombol "➕ Tambah Buku"
+- Isi form (judul, penulis, penerbit, tahun, kategori, stok)
+- Upload gambar cover (opsional)
+- Klik "💾 Simpan Buku"
+
+### 2. Edit Buku
+- Klik tombol "✏️ Edit" pada buku yang ingin diubah
+- Ubah data yang diperlukan
+- Upload gambar baru (opsional)
+- Klik "💾 Update Buku"
+
+### 3. Hapus Buku
+- Klik tombol "🗑️ Hapus" pada buku
+- Konfirmasi penghapusan
+- Buku dan gambarnya akan terhapus
+
+### 4. Cari Buku
+- Ketik kata kunci di kolom pencarian
+- Klik "🔍 Cari"
+- Sistem akan filter berdasarkan judul, penulis, atau kategori
+
+### 5. Kelola Peminjaman
+- Klik menu "🔧 Kelola Peminjaman"
+- Lihat statistik peminjaman
+- Lihat semua peminjaman dari semua user
+- Tandai buku sudah dikembalikan jika perlu 
 
 
 
